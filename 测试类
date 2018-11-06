@@ -1,0 +1,19 @@
+package mp3_player; 
+
+public class Test {
+ 
+	public static void main(String[] args) {
+        // 下载文件测试
+		String downloadFile = HttpConnectionUtil.downloadFile("http://music.163.com/song/media/outer/url?id=440208476", "E:\\mv");
+		System.out.println("下载返回的地址："+downloadFile);
+		try {
+			//等待下载
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		 MP3Player mp3 = new MP3Player(downloadFile);
+	        //播放
+	     mp3.play(); 
+	}
+}
